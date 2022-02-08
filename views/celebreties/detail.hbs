@@ -1,0 +1,21 @@
+<h1>Details</h1>
+
+{{#with celebrity}}
+	<h1>Details for {{name}}</h1>
+	
+	<p>Age: {{age}}</p>
+	
+	<a href="/celebreties/edit/{{_id}}">Edit this celebrety</a>
+	<a href="/celebreties/delete/{{_id}}">❌ Delete this celebrety from the list</a>
+	<a href="/celebreties">Check out all the celebs</a>
+
+	<h3>{{name}} stared in following movies:</h3>
+{{/with}}
+
+{{#if moviesIncludingCelebrity}}
+	{{#each moviesIncludingCelebrity}}
+		<a href='/movies/{{_id}}'><h3>{{title}}</h3></a>
+	{{/each}}
+{{else}}
+	<h3>{{celebrity.name}} didn´t star in any movies yet</h3>	
+{{/if}}

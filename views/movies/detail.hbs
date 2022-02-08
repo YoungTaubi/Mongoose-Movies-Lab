@@ -1,0 +1,13 @@
+<h1>Details Movie</h1>
+
+{{#with movies}}
+	<h1>Details for {{title}}</h1>	
+	<p>genre: {{genre}}</p>	
+    <h3>Cast:</h3>
+    {{#each cast}}
+        <a href="/celebreties/{{_id}}"><h3>{{name}}</h3></a>
+    {{/each}}
+	<a href="/movies/edit/{{_id}}">Edit this movie</a>
+	<a href="/movies/delete/{{_id}}">❌ Delete this movie from the list</a>
+	<a href="/movies">Check out all the movies</a>
+{{/with}}
