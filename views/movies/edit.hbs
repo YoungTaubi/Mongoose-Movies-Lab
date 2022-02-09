@@ -10,9 +10,20 @@
 	<label for="cast">Cast</label>
 {{/with}}
 	<select name="cast" size="3" multiple="multiple">
-		{{#each celebrities}}
-			<option value="{{_id}}">{{name}}</option>
-		{{/each}}
+        {{!-- {{#if selected}} --}}
+            {{#each celebrities}}
+                
+		    	<option value="{{_id}}" selected>{{name}}</option>
+                
+		    {{/each}}
+        {{!-- {{#else}}
+             {{#each celebrities}}
+                
+		    	<option value="{{_id}}">{{name}}</option>
+                
+		    {{/each}}
+        {{/else}}
+        {{/if}} --}}
 	</select>
 	<button type="submit">Update this movie</button>
 </form>

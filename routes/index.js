@@ -149,12 +149,28 @@ router.get('/movies/edit/:id', (req, res, next) => {
 	const id = req.params.id
 	const movie = Movies.findById(id).populate('cast')
 	const celebrities = Celebrity.find()
+	let selected = true
+	let option = ''
+	
+
 
 	// get that book from the db	
 	Promise.all([movie, celebrities]).then(data => {
-		const [movie, celebrities] = data
-		console.log(movie, celebrities)
-		res.render('movies/edit', { movie, celebrities })
+		const [movie, celebrities] = data;
+		console.log(movie, celebrities);
+		console.log('cast: ', movie.cast);
+		// celebrities.forEach((celeb) => {
+		// 	if (movie.cast.map(mov => mov).includes(celeb._id)) {
+		// 		console.log('yes')
+		// 		selected = false
+		// 		//res.render('movies/edit', { movie, celebrities, selected })
+		// 	} else {
+		// 		//res.render('movies/edit', { movie, celebrities })
+		// 	}
+			
+		// })
+
+		res.render('movies/edit', { movie, celebrities, selected })
 	})
 	.catch(err => next(err))
 });
